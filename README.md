@@ -1,2 +1,2 @@
 # easyblog
-This is a demo for COMP586 Object-oriented programming.
+This is a demo for CSUN-COMP586 Object-oriented programming.
