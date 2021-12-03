@@ -84,6 +84,7 @@ public class BlogController {
         return Result.succ(null);
     }
 
+    //upload picture
     @PostMapping("/blog/uploadpic")
     public Result upload(HttpServletRequest request, MultipartFile image) {
 

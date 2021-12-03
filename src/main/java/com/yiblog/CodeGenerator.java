@@ -21,14 +21,14 @@ public class CodeGenerator {
                             .enableSwagger()
                             .fileOverride()
                             .outputDir("E://CSUN//yiblog//backend//src//main//java")
-                            .commentDate("2021-10-14");
+                            .commentDate("2021-12-01");
                 })
                 .packageConfig(builder -> {
                     builder.parent("com.yiblog")
                             .pathInfo(Collections.singletonMap(OutputFile.mapperXml, "E://CSUN//yiblog//backend//src//main//resources//mapper"));
                 })
                 .strategyConfig(builder -> {
-                    builder.addInclude("user") ;
+                    builder.addInclude("comment") ;
                 })
                 .execute();
     }

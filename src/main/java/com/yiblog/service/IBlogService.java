@@ -22,4 +22,5 @@ import java.util.UUID;
  * @since 2021-10-14
  */
 public interface IBlogService extends IService<Blog> {
+
 }

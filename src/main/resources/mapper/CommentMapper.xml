@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yiblog.mapper.CommentMapper">
+    <select id="listByBlogId" resultType="com.yiblog.common.dto.CommentDto">
+        SELECT c.*, b.blog_id,u.username
+        FROM comment as c,
+             blog_comment_detail as b,
+             user as u
+        WHERE c.id = b.comment_id
+          AND u.id = c.user_id
+          AND b.blog_id = #{blogId}
+        ORDER BY c.created DESC
+    </select>
+</mapper>
