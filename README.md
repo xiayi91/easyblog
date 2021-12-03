@@ -16,6 +16,6 @@ like "/blogs" is mapping to @GetMapping("value=/blogs") in Java methods.
 
 **4 tables:**
 "user","blog","comment","blog_comment_detail".
-There are 3 controllers, and they all have associated mapping annotations to interact with the front-end. (easyblog-backend/src/main/java/com/yiblog/controller) 
+There are 4 controllers, and they all have associated mapping annotations to interact with the front-end. (easyblog-backend/src/main/java/com/yiblog/controller) 
 
 **Dependency Ingection:** Springboot annotation -> implement dependency injection, like @Data, @Components, @RestController etc.
