@@ -8,6 +8,8 @@ import com.yiblog.entity.Comment;
 import com.yiblog.service.IBlogCommentDetailService;
 import com.yiblog.service.ICommentService;
 import com.yiblog.utils.ShiroUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
@@ -24,6 +26,7 @@ import java.util.List;
  * @author YiXia
  * @since 2021-12-01
  */
+@Api(tags="Comment")
 @RestController
 @RequestMapping("/comment")
 public class CommentController {
@@ -34,7 +37,7 @@ public class CommentController {
     @Autowired
     IBlogCommentDetailService iBlogCommentDetailService;
 
-
+    @ApiOperation("comments")
     @GetMapping("/comment")
     public Result list(@RequestParam(name = "id") Long blogId) {
 
@@ -46,6 +49,7 @@ public class CommentController {
         return Result.succ(comments);
     }
 
+    @ApiOperation("comments edition")
     @PostMapping("/edit")
     public Result edit(@Validated @RequestBody CommentDto commentDto) {
         //save comment

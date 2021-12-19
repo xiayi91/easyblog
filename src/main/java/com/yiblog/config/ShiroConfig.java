@@ -56,7 +56,7 @@ public class ShiroConfig {
 
         Map<String, String> filterMap = new LinkedHashMap<>();
 
-        filterMap.put("/**", "jwt");
+        filterMap.put("/**", "jwt"); //Checking permissions mainly through annotations
         chainDefinition.addPathDefinitions(filterMap);
         return chainDefinition;
     }

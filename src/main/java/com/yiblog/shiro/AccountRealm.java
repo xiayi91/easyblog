@@ -4,12 +4,19 @@ import cn.hutool.core.bean.BeanUtil;
 import com.yiblog.entity.User;
 import com.yiblog.service.IUserService;
 import com.yiblog.utils.JwtUtils;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Component
 public class AccountRealm extends AuthorizingRealm {
@@ -32,11 +39,11 @@ public class AccountRealm extends AuthorizingRealm {
 
     /**
      * Permission verification
-     * @param principals
+     * @param principalCollection
      * @return
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         return null;
     }
 

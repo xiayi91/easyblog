@@ -10,6 +10,8 @@ import com.yiblog.common.lang.Result;
 import com.yiblog.entity.Blog;
 import com.yiblog.service.IBlogService;
 import com.yiblog.utils.ShiroUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +32,7 @@ import java.util.UUID;
  * @author YiXia
  * @since 2021-10-14
  */
+@Api(tags="Blog")
 @RestController
 //@RequestMapping("/blog")
 public class BlogController {
@@ -42,6 +45,7 @@ public class BlogController {
     @Value("${yiblog.upload.realPath}")
     private String realPath;
 
+    @ApiOperation("blog lists")
     @GetMapping("/blogs")
     public Result list(@RequestParam(defaultValue = "1") Integer currentPage) {
 
@@ -51,6 +55,7 @@ public class BlogController {
         return Result.succ(pageData);
     }
 
+    @ApiOperation("blog detail")
     @GetMapping("/blog/{id}")
     public Result detail(@PathVariable(name = "id") Long id) {
         Blog blog = iBlogService.getById(id);
@@ -59,6 +64,7 @@ public class BlogController {
         return Result.succ(blog);
     }
 
+    @ApiOperation("blog edition")
     @RequiresAuthentication
     @PostMapping("/blog/edit")
     public Result edit(@Validated @RequestBody Blog blog) {
@@ -84,6 +90,7 @@ public class BlogController {
         return Result.succ(null);
     }
 
+    @ApiOperation("uploadpic")
     //upload picture
     @PostMapping("/blog/uploadpic")
     public Result upload(HttpServletRequest request, MultipartFile image) {

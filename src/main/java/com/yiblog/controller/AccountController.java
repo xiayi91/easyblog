@@ -8,6 +8,8 @@ import com.yiblog.common.lang.Result;
 import com.yiblog.entity.User;
 import com.yiblog.service.IUserService;
 import com.yiblog.utils.JwtUtils;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 
+@Api(tags="Account")
 @RestController
 public class AccountController {
 
@@ -39,6 +42,7 @@ public class AccountController {
      * @param response
      * @return
      */
+    @ApiOperation("login")
     @PostMapping("/login")
     public Result login(@Validated @RequestBody LoginDto loginDto, HttpServletResponse response) {
 
@@ -66,6 +70,7 @@ public class AccountController {
      * log out
      * @return
      */
+    @ApiOperation("log out")
     @RequiresAuthentication
     @GetMapping("/logout")
     public Result logout() {

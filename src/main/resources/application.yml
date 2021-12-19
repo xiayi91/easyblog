@@ -2,9 +2,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/586oosdemo
-    username: root
-    password: admin
+    url: jdbc:mysql://ec2-54-177-15-182.us-west-1.compute.amazonaws.com:3306/586oosdemo
+    username: test
+    password: 12345
+#    url: jdbc:mysql://localhost:3306/586oosdemo
+#    username: root
+#    password: admin
 mybatis-plus:
     mapper-locations: classpath*:/mapper/**Mapper.xml
 server:
@@ -17,3 +20,7 @@ yiblog:
   upload:
     path: /files/
     realPath: /home/ubuntu/yiblog/files/
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
