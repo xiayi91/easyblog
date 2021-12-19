@@ -1,4 +1,4 @@
-# easyblog-backend
+# yiblog-backend
 This is a demo for CSUN-COMP586 Object-oriented programming.
 
 **Frontend:** Vue.js
